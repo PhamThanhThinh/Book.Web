@@ -1,0 +1,92 @@
+Blazor: nhà sách online
+vẫn dùng asp.net core mvc + blazor web app
+.net 8
+thư viện identity đăng ký đăng nhập đăng xuất
+mobile + web + dùng chung database
+Mobile: MAUI
+cần API
+cshtml
+
+Mobile
+Web
+Share (chứa dùng chung)
+Shared.Component class bình thường
+
+thi trắc nghiệm
+
+Shared.Component 
+tạo class razor library
+
+ôn kiến thức cơ bản: Sắp xếp, tìm kiếm, mảng, danh sách liên kết, queue, stack, linq, oop (đa hình, kế thừa, trừu tượng, đóng gói)...
+sql cơ bản
+
+
+asp.net
+(cũ)
+mới thì nên search hướng tiếng Anh
+
+
+
+
+quan trọng kết quả cuối fresher khi cho làm một dự án thử 
+
+
+Đã setup xong project
+Tạo database
+Add package (nuget package)
+
+Web (trình duyệt, blazor) kết hợp Mobile (Android, MAUI xamarin) dùng database
+
+Reference
+Mobile liên kết Shared và Component
+Web liên kết Shared và Component
+liên kết Component với Shared
+
+Chạy các project cùng lúc
+
+Build
+
+Chạy thử
+
+Add package (Tạo database)
+
+ef sqlserver
+
+Microsoft.EntityFrameworkCore.SqlServer
+(cài vào project Web)
+Microsoft.EntityFrameworkCore.Tools
+
+Thư mục Data: Thực thể Entity DbContext
+Tạo class trong Entity
+
+những kiểu dữ liệu thường dùng cho trường ID
+int
+guid
+string
+short
+
+asp.net web forms
+asp.net mvc .net framework
+asp.net core mvc
+
+trường slug chứa đường liên kết của ứng dụng (hỗ trợ SEO website)
+Book
+
+Mưa to vãi
+
+
+web assembly
+
+show sản phẩm
+phân trang
+chi tiết sản phẩm
+
+mobile + web + server dùng chung
+
+
+add-migration mota
+add-migration taodatabase
+
+updatebase
+
+buổi Thịnh sẽ fix bug để có thể tạo database cho project nhà sách

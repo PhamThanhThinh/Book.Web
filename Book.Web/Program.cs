@@ -1,6 +1,15 @@
 using Book.Web.Components;
+using Book.Web.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+  var chuoiKetNoi = builder.Configuration.GetConnectionString("DefaultConnection");
+  options.UseSqlServer(chuoiKetNoi);
+  //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 // Add services to the container.
 builder.Services.AddRazorComponents();
