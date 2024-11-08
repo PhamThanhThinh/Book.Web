@@ -12,7 +12,7 @@ namespace Book.Web.Data.Entities
     public short GenreId { get; set; }
 
     [ForeignKey(nameof(BookId))]
-    public virtual Book Book { get; set; }
+    public virtual Books Book { get; set; }
     [ForeignKey(nameof(GenreId))]
     public virtual Genre Genre { get; set; }
   }
