@@ -1,6 +1,7 @@
 ﻿using Book.Web.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.SqlServer.Server;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Book.Web.Data
@@ -31,6 +32,7 @@ namespace Book.Web.Data
     // tao database mac dinh
     private static void SeedData(ModelBuilder modelBuilder)
     {
+      // kích hoạt khi add-migration và update - database
       modelBuilder.Entity<Genre>().HasData(
         [
           new Genre {

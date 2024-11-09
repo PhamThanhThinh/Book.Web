@@ -1,5 +1,34 @@
-Tiếp tục tạo database
+Tiếp tục tạo database (chưa có data)
 Tạo DTOs, Books Service
 Làm giao diện:
  + Phông chữ và CSS
- + Chia Layout: Header, Navbar, Footer
+ + Chia Layout: Header, Navbar, Content, Footer
+
+DTO: Data Transfer Object
+
+Chia layout thành
+menu: danh sách thể loại
+danh sách sản phẩm (sách)
+sản phẩm phổ biến
+
+Dùng Visio (microsoft office để vẽ)
+
+add-migration
+update-database
+
+git
+github (private, public), lưu máy local (server linux) -> dùng phần mềm giống github để quản trị code(master, các nhánh phụ)
+
+khảo sát các bạn muốn xem màn hình vuông hay là màn hình chữ nhật
+
+$"string"
+
+trong dự outsource sẽ có guidline (hướng dẫn) pdf, work
+
+clean code
+
+Dependency Injection
+
+true
+
+Book và Genre có mối quan hệ nhiều nhiều (n - n)

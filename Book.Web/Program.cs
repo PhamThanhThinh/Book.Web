@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContextFactory<ApplicationDbContext>(options =>
 {
   var chuoiKetNoi = builder.Configuration.GetConnectionString("DefaultConnection");
   options.UseSqlServer(chuoiKetNoi);
