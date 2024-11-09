@@ -1,0 +1,5 @@
+Tiếp tục tạo database
+Tạo DTOs, Books Service
+Làm giao diện:
+ + Phông chữ và CSS
+ + Chia Layout: Header, Navbar, Footer
