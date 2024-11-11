@@ -1,10 +1,11 @@
 ﻿using Book.Shared.DTOs;
+using Book.Shared.Interfaces;
 using Book.Web.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Book.Web.Services
 {
-  public class BookService
+  public class BookService : IBookService
   {
     private readonly IDbContextFactory<ApplicationDbContext> _dbContextFactory;
 
