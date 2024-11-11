@@ -1,5 +1,7 @@
+using Book.Shared.Interfaces;
 using Book.Web.Components;
 using Book.Web.Data;
+using Book.Web.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,8 @@ builder.Services.AddDbContextFactory<ApplicationDbContext>(options =>
 
 // Add services to the container.
 builder.Services.AddRazorComponents();
+
+builder.Services.AddTransient<IBookService, BookService>();
 
 var app = builder.Build();
 
