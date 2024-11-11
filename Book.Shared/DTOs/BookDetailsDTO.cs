@@ -9,6 +9,6 @@ namespace Book.Shared.DTOs
   // chi tiết thông tin sách
   public record BookDetailsDTO(int Id,
     string Name, string Image,
-    AuthorDTO Author, int NumPages,
-    string Description, GenreDTO[] Genres);
+    AuthorDTO Author, int NumPages, string Format,
+    string Description, GenreDTO[] Genres, string? BuyLink);
 }

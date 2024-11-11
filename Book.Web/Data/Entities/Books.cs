@@ -40,6 +40,7 @@ namespace Book.Web.Data.Entities
     [ForeignKey(nameof(AuthorId))]
     public virtual Author Author { get; set; }
 
-    public virtual ICollection<GenreBook> GenreBooks { get; set; } = new List<GenreBook>();
+    //public virtual ICollection<GenreBook> GenreBooks { get; set; } = new List<GenreBook>();
+    public virtual ICollection<GenreBook> BookGeres { get; set; } = new List<GenreBook>();
   }
 }
