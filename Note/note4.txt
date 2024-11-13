@@ -13,3 +13,5 @@ project empty (trống không, không theo một template project nào, tự t�
 variable
 
 visio (bộ công cụ office, vẽ hoạt động của hệ thống)
+
+theme one dark pro
