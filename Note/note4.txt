@@ -9,3 +9,7 @@ User Interface
 
 Blazor
 
+project empty (trống không, không theo một template project nào, tự tạo)
+variable
+
+visio (bộ công cụ office, vẽ hoạt động của hệ thống)

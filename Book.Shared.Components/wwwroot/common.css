@@ -1,3 +1,31 @@
-﻿html, body, * {
+﻿:root {
+  --color-main: #CCD5F0;
+  --color-main-light: #00ffff;
+  --color-main-dark: #181a17;
+  --color-very-light-gray: #808080;
+  --color-light-black: #444;
+}
+
+html, body, * {
   font-family: "Roboto", sans-serif;
+}
+
+html, body {
+  background-color: #e89f9f;
+}
+
+.bg-main {
+  background-color: var(--color-main);
+}
+
+.bg-main-light {
+  background-color: var(--color-main-light);
+}
+
+.bg-main-dark {
+  background-color: var(--color-main-dark);
+}
+
+.text-main {
+  color: var(--color-main);
 }
