@@ -15,3 +15,6 @@ variable
 visio (bộ công cụ office, vẽ hoạt động của hệ thống)
 
 theme one dark pro
+
+Navigation Bar
+Main (Body)
