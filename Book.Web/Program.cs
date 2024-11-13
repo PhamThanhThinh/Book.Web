@@ -33,6 +33,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
+//app.MapRazorComponents<App>()
+//  .AddAdditionalAssemblies(typeof(Book.Shared.Components));
+
 app.MapRazorComponents<App>();
+
 
 app.Run();

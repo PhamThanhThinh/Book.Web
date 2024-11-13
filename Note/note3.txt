@@ -9,3 +9,10 @@ Blazor sẽ dùng khái niệm Page và Component
 
 Interface
 Service
+
+Làm GUI
+bước đầu sẽ lấy phông chữ (google)
+Project này giao mình làm thủ công
+
+Ứng dụng máy tính ( dùng Mudblazor sau)
+

@@ -1,0 +1,11 @@
+html
+_content/[LibraryName]
+
+Razor Library Class
+
+GUI
+
+User Interface
+
+Blazor
+
