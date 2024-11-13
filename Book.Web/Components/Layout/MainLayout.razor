@@ -1,3 +1,24 @@
 ﻿@inherits LayoutComponentBase
 
 <NavMenu />
+
+<div class="container-fluid bg-main">
+  <div class="container d-flex flex-column justify-content-center align-items-center">
+    <Microsoft.AspNetCore.Components.Sections.SectionOutlet
+      SectionName="PageTitle"
+    />
+  </div>
+</div>
+
+@Body
+
+<hr />
+
+<div class="container">
+  <footer class="d-flex align-items-center justify-content-center">
+    @* <p>Copyright by CodingWithThinh</p> *@
+    <p>
+      &copy; @DateTime.Today.Year | Nhà Sách Online | By CodingWithThinh
+    </p>
+  </footer>
+</div>
