@@ -187,5 +187,4 @@ namespace Book.Web.Services
       return new PagedResult<BookListDTO>(books, totalCount);
     }
   }
-
 }

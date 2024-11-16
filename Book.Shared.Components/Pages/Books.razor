@@ -1,21 +1,53 @@
 ﻿@page "/"
+@page "/page/{pageNo:int?}"
+@using Book.Shared.DTOs
 
+@inject IBookService BookService
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Trang chủ nhà sách online</PageTitle>
 
 <SectionContent SectionName="PageTitle">
   <h1 class="m-0 text-black">
     Nhà Sách Online
   </h1>
+  <h2 class="text-white bg-main-dark mt-2">Sách bán chạy (Popular)</h2>
 </SectionContent>
 
 <div class="container-lg">
   Xin chào
 </div>
 
-<h3>Books Xin Chào</h3>
+<h3>Danh sách các cuốn Sách</h3>
 
 
 @code {
 
+  [Parameter]
+  public int? PageNo { get; set; }
+  private const int PageSize = 20;
+  private int _totalCount = 0;
+
+  private GenreDTO[] _genreDTOs = [];
+  private BookListDTO[] _bookListDTOs = [];
+  private BookListDTO[] _popularBooks = [];
+
+
+
+  // sắp xếp cách mà các thể loại hiển thị
+  protected override async Task OnInitializedAsync(){
+    
+    // khai báo các biến sẽ dùng
+
+    // _genreDTOs = await BookService.GetGenresAsync(isTopOnly: true);
+    var danhSachTheLoai = BookService.GetGenresAsync(isTopOnly: true);
+    // _popularBooks = await BookService.GetPopularBookAsync();
+    // _popularBooks = await BookService.GetBooksAsync(PageNo, PageSize);
+    // var pagedResult = await BookService.GetBooksAsync(PageNo ?? 1, PageSize);
+    // (_bookListDTOs, _totalCount) = await BookService.GetBooksAsync(PageNo ?? 1, PageSize);
+    var danhSachSanPham = BookService.GetBooksAsync(PageNo ?? 1, PageSize);
+
+    // sách bán chạy
+    // _popularBooks = await BookService.GetPopularBookAsync(10);
+    var danhSachSanPhamBanChay = BookService.GetPopularBookAsync(10);
+  }
 }
