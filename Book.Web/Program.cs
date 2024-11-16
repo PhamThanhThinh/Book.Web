@@ -33,10 +33,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
-//app.MapRazorComponents<App>()
-//  .AddAdditionalAssemblies(typeof(Book.Shared.Components));
+app.MapRazorComponents<App>()
+  .AddAdditionalAssemblies(typeof(Book.Shared.Components.Pages.Books).Assembly);
 
-app.MapRazorComponents<App>();
+//app.MapRazorComponents<App>();
 
 
 app.Run();
