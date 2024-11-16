@@ -10,3 +10,9 @@ reset css (frontend)
 Âu, Mỹ, Nhật
 outsourcing
 SignalR (làm app nói chuyện trực tuyến, cần thời thực thì dùng SignalR ) -> WebForms, .NET Framework, .NET Core, Blazor
+
+OOP (hướng đối tượng)
+public
+private
+protected
+
