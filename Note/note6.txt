@@ -1,0 +1,8 @@
+Phần 21 của seri nhà sách online (phần 5 của seri blazor)
+nên xóa code nháp đi để cho code dễ đọc
+/page
+/genres
+/author
+
+popular
+póp-piu-lờ

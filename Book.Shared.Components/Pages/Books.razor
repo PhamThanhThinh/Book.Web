@@ -14,10 +14,48 @@
 </SectionContent>
 
 <div class="container-lg">
-  Xin chào
+  <h3>Danh sách các cuốn Sách</h3>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="genre-list">
+            <div class="genre-item">
+              <a href="/" title="Popular Book">Popular Book</a>
+            </div>
+            @foreach (var g in _genreDTOs)
+            {
+              <div class="genre-item">
+                <a 
+                  href="?genre=@g.Slug"
+                  title="@g.Name">@g.Name</a>
+              </div>
+            }
+          </div>
+        </div>
+
+        <h3 class="my-2">Sách Bán Chạy</h3>
+
+        <div class="row">
+          @foreach (var b in _bookListDTOs)
+          {
+            <div class="col-sm-6 col-lg-3">
+
+            </div>
+
+          }
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+
 </div>
 
-<h3>Danh sách các cuốn Sách</h3>
+
 
 
 @code {
@@ -35,19 +73,35 @@
 
   // sắp xếp cách mà các thể loại hiển thị
   protected override async Task OnInitializedAsync(){
-    
+
     // khai báo các biến sẽ dùng
 
     // _genreDTOs = await BookService.GetGenresAsync(isTopOnly: true);
-    var danhSachTheLoai = BookService.GetGenresAsync(isTopOnly: true);
+    // var danhSachTheLoai = BookService.GetGenresAsync(isTopOnly: true);
     // _popularBooks = await BookService.GetPopularBookAsync();
     // _popularBooks = await BookService.GetBooksAsync(PageNo, PageSize);
     // var pagedResult = await BookService.GetBooksAsync(PageNo ?? 1, PageSize);
     // (_bookListDTOs, _totalCount) = await BookService.GetBooksAsync(PageNo ?? 1, PageSize);
-    var danhSachSanPham = BookService.GetBooksAsync(PageNo ?? 1, PageSize);
+    // var danhSachSanPham = BookService.GetBooksAsync(PageNo ?? 1, PageSize);
 
     // sách bán chạy
     // _popularBooks = await BookService.GetPopularBookAsync(10);
+    // var danhSachSanPhamBanChay = BookService.GetPopularBookAsync(10);
+
+    var danhSachTheLoai = BookService.GetGenresAsync(isTopOnly: true);
+    var danhSachSanPham = BookService.GetBooksAsync(PageNo ?? 1, PageSize);
     var danhSachSanPhamBanChay = BookService.GetPopularBookAsync(10);
+
+    _genreDTOs = await danhSachTheLoai;
+    (_bookListDTOs, _totalCount) = await danhSachSanPham;
+
+
+    /*
+     *sách bạn chạy, có thể viết _popularBooks thành
+     *_popularListBooks
+     */
+    _popularBooks = await danhSachSanPhamBanChay;
+
+    
   }
 }
