@@ -1,0 +1,12 @@
+AI
+https://replit.com/
+(code ngon hơn, chuyên về code
+có free và có phí, có chức năng code chung)
+
+bootstrap 5.1
+mặc định khi load trang bootstrap lên là 5.3
+reset css (frontend)
+
+Âu, Mỹ, Nhật
+outsourcing
+SignalR (làm app nói chuyện trực tuyến, cần thời thực thì dùng SignalR ) -> WebForms, .NET Framework, .NET Core, Blazor
