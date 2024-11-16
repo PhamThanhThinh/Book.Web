@@ -4,9 +4,10 @@
 
 <div class="container-fluid bg-main">
   <div class="container d-flex flex-column justify-content-center align-items-center">
-    <Microsoft.AspNetCore.Components.Sections.SectionOutlet
+    @* <Microsoft.AspNetCore.Components.Sections.SectionOutlet
       SectionName="PageTitle"
-    />
+    /> *@
+    <SectionOutlet SectionName="PageTitle" />
   </div>
 </div>
 
@@ -19,6 +20,7 @@
     @* <p>Copyright by CodingWithThinh</p> *@
     <p>
       &copy; @DateTime.Today.Year | Nhà Sách Online | By CodingWithThinh
+      <a href="https://www.youtube.com/@@codingwiththinh" target="_blank">Coding with Thinh</a>
     </p>
   </footer>
 </div>
