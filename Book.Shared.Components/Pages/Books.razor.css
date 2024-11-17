@@ -1,2 +1,18 @@
 ﻿body {
 }
+.genre-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  background-color: aqua;
+  border: 1px solid var(--color-very-light-gray);
+}
+.genre-item {
+  padding: 10px;
+}
+
+  .genre-item.active {
+    background-color: var(--color-main);
+    color: white;
+    border-radius: 5px;
+  }
