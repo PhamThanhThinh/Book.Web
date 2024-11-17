@@ -10,6 +10,13 @@ html, body, * {
   font-family: "Roboto", sans-serif;
 }
 
+/*
+  !important để text-decoration được áp dụng
+*/
+/*a {
+  text-decoration: none !important;
+}*/
+
 html, body {
   background-color: #e89f9f;
 }
