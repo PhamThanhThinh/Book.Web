@@ -1,0 +1,36 @@
+﻿@page "/genres"
+
+@inject IBookService BookService
+
+<PageTitle>Danh sách thể loại</PageTitle>
+
+<SectionContent SectionName="PageTitle">
+  <h1 class="m-0 text-black">
+    Nhà Sách Online
+  </h1>
+  <h2 class="text-white bg-main-dark mt-2">Danh Sách Thể Loại</h2>
+</SectionContent>
+
+<h3>Thể Loại</h3>
+
+<div class="container">
+  <div class="row">
+    @foreach (var g in _genreDTOs)
+    {
+      <div class="col-6 col-sm-3 mb-4">
+        <a href="/?genre=@g.Slug"
+           title="@g.Name" class="bg-main p-3">@g.Name</a>
+      </div>
+    }
+  </div>
+</div>
+
+
+@code {
+  private GenreDTO[] _genreDTOs = [];
+  protected override async Task OnInitializedAsync()
+  {
+    _genreDTOs = await BookService.GetGenresAsync(isTopOnly: true);
+
+  }
+}

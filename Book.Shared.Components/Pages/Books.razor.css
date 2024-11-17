@@ -6,7 +6,19 @@
   margin: 20px 0;
   background-color: aqua;
   border: 1px solid var(--color-very-light-gray);
+  border-radius: 5px;
+  overflow-x: auto;
+  white-space: nowrap;
 }
+
+.genre-list::-webkit-scrollbar {
+  height: 0;
+}
+
+  .genre-list:hover::-webkit-scrollbar {
+    height: 10px;
+  }
+
 .genre-item {
   padding: 10px;
 }
@@ -16,3 +28,17 @@
     color: white;
     border-radius: 5px;
   }
+
+.gen-link {
+  font-weight: bold;
+  color: #00ff21;
+  /*color: #555;*/
+  font-size: 16px;
+  padding: 8px;
+}
+
+.genre-item.active .gen-link {
+  /*color: wheat;*/
+  color: white;
+}
+

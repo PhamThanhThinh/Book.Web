@@ -10,3 +10,13 @@ thực tế dùng linq
 bcw dùng trong vscode
 đối với blazar và .net framework thì css html sẽ tự động được load lại không cần dùng chức năng hot reload
 .net core mvc thì phải build lại
+lỡ reset css p-0 p0
+
+robbie-morrison
+
+doctor who comic amazon
+
+ctrl + space để lấy gợi ý code
+
+Shared
+khai báo css inline
