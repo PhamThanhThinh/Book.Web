@@ -39,3 +39,9 @@ báo cáo thống kê thời gian thật
 )
 nên làm thêm nhiều project
 project bự (control một cục source bự, clean code)
+
+BookDetails
+
+ctrl + S lưu tránh mất code khi bị mất điện giữa chừng
+
+thường sẽ có bộ ắc quy trữ điện để khi bị mất diện thì dùng sơ cua

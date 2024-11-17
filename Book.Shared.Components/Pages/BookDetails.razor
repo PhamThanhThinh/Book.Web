@@ -1,5 +1,93 @@
-﻿<h3>BookDetails</h3>
+﻿@page "/books/{bookId:int}"
+
+@inject NavigationManager NavigationManager
+
+@inject IBookService BookService
+
+@* <PageTitle>Trang chủ nhà sách online</PageTitle> *@
+
+<PageTitle>
+  @_book?.Name | Nhà Sách Online
+</PageTitle>
+
+<SectionContent SectionName="PageTitle">
+  <h1 class="m-0 text-black">
+    @_book?.Name | Nhà Sách Online
+  </h1>
+  <h2 class="text-white bg-main-dark mt-2">Chi Tiết Thông Tin Sách</h2>
+</SectionContent>
+
+@if (_book is not null)
+{
+  <div class="container m-5">
+    <h3>Chi Tiết Sách</h3>
+    <div class="row">
+      <div class="col-sm-4 d-flex flex-column align-items-center">
+        <div class="image-wrapper">
+          <img src="https://m.media-amazon.com/images/I/517a4JTQuTL._SY445_SX342_.jpg"
+               alt="@_book.Name" class="img-responsive">
+          @* test trường hợp không load được ảnh *@
+               @* <img src=""
+               alt="@_book.Name" class="img-responsive"> *@
+        </div>
+
+        <div class="my-4">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th scope="row">Mã Định Danh (Id)</th>
+                <td>
+                  @_book.Id
+                </td>
+                <th scope="row">Định Dạng</th>
+                <td>
+                  @_book.Format
+                </td>
+                <th scope="row">Số Trang</th>
+                <td>
+                  @_book.NumPages
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      <div class="col-sm-8"></div>
+    </div>
+  </div>
+}
+
+
 
 @code {
+  [Parameter]
+  public int BookId { get; set; }
+
+  private BookDetailsDTO? _book;
+  private BookListDTO[] _similarBookListDTOs = [];
+
+  protected override async Task OnInitializedAsync()
+  {
+    if (BookId <= 0)
+    {
+      NavigationManager.NavigateTo("/", replace: true);
+      // NavigationManager.NavigateTo("/");
+      return;
+    }
+
+    var bookTask = BookService.GetBooksAsync(BookId);
+    var similarBookListTask = BookService.GetSimilarBookAsync(BookId, 1);
+
+    _book = await bookTask;
+
+    _similarBookListDTOs = await similarBookListTask;
+
+    if (_book is null)
+    {
+      NavigationManager.NavigateTo("/", replace: true);
+      // NavigationManager.NavigateTo("/");
+    }
+  }
 
 }
