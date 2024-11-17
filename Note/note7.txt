@@ -33,3 +33,9 @@ Book Detail Page
 blazor
 web api
 MAUI (làm mobile đa nền tảng: android, ios)
+
+real time thời gian thật signalR (làm ứng dụng web nói chuyện trực tuyến
+báo cáo thống kê thời gian thật
+)
+nên làm thêm nhiều project
+project bự (control một cục source bự, clean code)
