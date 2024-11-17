@@ -21,7 +21,12 @@
           <div class="genre-list">
 
             <div class="genre-item">
+              <a href="/genres">Trang Thể Loại</a>
+            </div>
+
+            <div class="genre-item">
               @* <h3 class="my-2">Sách Bán Chạy</h3> *@
+
               <h3>Sách Bán Chạy</h3>
               <a href="/" title="Popular Book">Popular Book</a>
             </div>
@@ -69,11 +74,7 @@
     <div class="col-md-3">
     </div>
   </div>
-
 </div>
-
-
-
 
 @code {
 
@@ -85,8 +86,6 @@
   private GenreDTO[] _genreDTOs = [];
   private BookListDTO[] _bookListDTOs = [];
   private BookListDTO[] _popularBooks = [];
-
-
 
   // sắp xếp cách mà các thể loại hiển thị
   protected override async Task OnInitializedAsync(){
@@ -113,13 +112,11 @@
     _genreDTOs = await danhSachTheLoai;
     (_bookListDTOs, _totalCount) = await danhSachSanPham;
 
-
     /*
      *sách bạn chạy, có thể viết _popularBooks thành
      *_popularListBooks
      */
     _popularBooks = await danhSachSanPhamBanChay;
 
-    
   }
 }

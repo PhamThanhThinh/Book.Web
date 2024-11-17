@@ -20,3 +20,16 @@ ctrl + space để lấy gợi ý code
 
 Shared
 khai báo css inline
+
+cấu trúc margin padding cho frontend web (làm giao diện web)
+https://www.avajava.com/tutorials/lessons/how-are-margins-borders-padding-and-content-related.html
+
+.net core dùng ViewBag.Title
+blazor PageTitle
+
+Book Detail Page
+
+.net core mvc
+blazor
+web api
+MAUI (làm mobile đa nền tảng: android, ios)

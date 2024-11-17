@@ -25,12 +25,10 @@
   </div>
 </div>
 
-
 @code {
   private GenreDTO[] _genreDTOs = [];
   protected override async Task OnInitializedAsync()
   {
     _genreDTOs = await BookService.GetGenresAsync(isTopOnly: true);
-
   }
 }
