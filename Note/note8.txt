@@ -9,3 +9,20 @@ Doctor Who: Empire of the WolfbyJody Houser
 
 rỗng khác null
 
+
+trên phải dưới trái
+top right bottom left
+
+tài sản công -> công ty trả tiền
+
+MAUI
+
+Trang tác giả với các cuốn sách của tác giả đó
+
+Author Book List
+
+AuthorBooks
+
+bên .net core mvc sẽ dùng partial view
+
+Blazor dùng Shared

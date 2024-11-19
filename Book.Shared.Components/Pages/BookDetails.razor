@@ -55,14 +55,80 @@
         @* <a href="@(string.IsNullOrWhiteSpace(_book.Name))">Xem Thêm Thông Tin</a> *@
         
         @* <a class="btn btn-primary" href="@(string.IsNullOrWhiteSpace(_book.BuyLink) ? "" : "")">Mua Hàng</a> *@
-        <a class="btn btn-primary" href="@_book.BookBuyLink" target="_blank">
-
+        <a class="btn btn-primary customclass" href="@_book.BookBuyLink" target="_blank">
           @(string.IsNullOrWhiteSpace(_book.BuyLink) ? "Xem Thêm Thông Tin" : "Mua Hàng")
-
-          </a>
+        </a>
 
       </div>
-      <div class="col-sm-8"></div>
+      <div class="col-sm-8">
+
+        <h3 class="fw-bold">@_book.Name</h3>
+        <h4 class="mt-3">
+          <span>Tác giả: </span>
+          @* <a class="text-secondary fw-bold" href="/authors/@_book.Author.Slug/books"
+            title="Cuốn Sách Được Viết Bởi @_book.Author.Name"
+          >@_book.Author.Name</a> *@
+          <a class="fw-bold" href="/authors/@_book.Author.Slug/books"
+             title="Cuốn Sách Được Viết Bởi @_book.Author.Name">@_book.Author.Name</a>
+        </h4>
+
+        <h4 class="mt-3">
+          <span>Mô tả: </span>
+        </h4>
+        <p>@_book.Description</p>
+
+        <h4 class="mt-3">
+          <span>Thể loại: </span>
+        </h4>
+        <div class="d-flex flex-wrap">
+          @foreach (var g in _book.Genres)
+          {
+            <a class="genre-tag m-3" title="@g.Name" href="/?genre=@g.Slug">@g.Name</a>
+          }
+        </div>
+
+        <hr style="height: 5px" />
+        <h4>Những Cuốn Sách Tương Tự</h4>
+
+        @* <div class="row">
+          @foreach (var b in _similarBookListDTOs)
+          {
+            <div class="col-6 col-sm-4 mb-4">
+              <a href="/books/@b.Id" title="@b.Name">
+                <div class="d-flex flex-column justify-content-center align-center-item">
+                  <img src="@b.Image" alt="@b.Name" class="" />
+                  <label class="mt-2">@b.Name</label>
+                </div>
+              </a>
+            </div>
+
+          }
+        </div> *@
+
+        <div class="row">
+          @foreach (var b in _similarBookListDTOs)
+          {
+            <div class="col-sm-6 col-lg-3">
+              <a href="/books/@b.Id" title="@b.Name">
+                <figure class="bg-main-light">
+                  <img src="@b.Image" alt="@b.Name" />
+                  <figcaption>
+                    @b.Name
+                  </figcaption>
+                  <figcaption>
+                    <h4>@b.Name</h4>
+                  </figcaption>
+                  <div class="p-2">
+                    <h4>@b.Name</h4>
+                  </div>
+                </figure>
+              </a>
+            </div>
+
+          }
+        </div>
+
+      </div>
     </div>
   </div>
 }

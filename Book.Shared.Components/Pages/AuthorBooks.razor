@@ -1,0 +1,16 @@
+﻿@page "/authors/{authorSlug}/books"
+@page "/authors/{authorSlug}/books/page/{pageNo:int?}"
+
+
+
+<h3>AuthorBooks</h3>
+
+@code {
+  [Parameter]
+  public string AuthorSlug { get; set; }
+  [Parameter]
+  public int? PageNo { get; set; } = 1;
+
+  private BookListDTO[] _booksByAuthorAsync = [];
+
+}
