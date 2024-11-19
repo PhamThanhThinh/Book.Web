@@ -1,7 +1,8 @@
 ﻿@page "/authors/{authorSlug}/books"
 @page "/authors/{authorSlug}/books/page/{pageNo:int?}"
 
-
+@inject NavigationManager NavigationManager
+@inject IBookService BookService
 
 <h3>AuthorBooks</h3>
 
@@ -11,6 +12,28 @@
   [Parameter]
   public int? PageNo { get; set; } = 1;
 
-  private BookListDTO[] _booksByAuthorAsync = [];
+  private const int PageSize = 20;
 
+  private BookListDTO[] _booksByAuthorAsync = [];
+  private BookListDTO[] _popularBookAsync = [];
+  private int _totalCount = 0;
+
+  protected override async Task OnInitializedAsync()
+  {
+    if (PageNo <= 0 || string.IsNullOrWhiteSpace(AuthorSlug))
+    {
+      NavigationManager.NavigateTo("/");
+      return;
+    }
+
+    // var ketQua = await BookService.GetBooksByAuthorAsync(PageNo ?? 1, PageSize, AuthorSlug);
+    (_booksByAuthorAsync, _totalCount) = await BookService.GetBooksByAuthorAsync(PageNo ?? 1, PageSize, AuthorSlug);
+
+    var danhSachSanPham = await BookService.GetBooksAsync(PageNo ?? 1, PageSize);
+    
+    // var danhSachSanPhamBanChay = BookService.GetPopularBookAsync(10);
+    _popularBookAsync = await BookService.GetPopularBookAsync(10);
+
+
+  }
 }
