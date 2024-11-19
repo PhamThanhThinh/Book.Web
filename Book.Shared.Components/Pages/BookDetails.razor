@@ -52,6 +52,11 @@
           </table>
         </div>
 
+        @* <a href="@(string.IsNullOrWhiteSpace(_book.Name))">Xem Thêm Thông Tin</a> *@
+        
+        @* <a class="btn btn-primary" href="@(string.IsNullOrWhiteSpace(_book.BuyLink) ? "" : "")">Mua Hàng</a> *@
+        <a class="btn btn-primary" href="@_book.BookBuyLink" target="_blank">Mua Hàng</a>
+
       </div>
       <div class="col-sm-8"></div>
     </div>
