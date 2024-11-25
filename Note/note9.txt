@@ -13,4 +13,7 @@ mảng array
 
 p là padding (bootstrap cơ bản)
 
+gõ jcc => justify-content-center (class trong bootstrap)
+
+foreach nếu muốn load nhiều thông tin từ database lên giao diện web
 
