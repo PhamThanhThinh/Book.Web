@@ -105,9 +105,7 @@ namespace Book.Web.Services
 
         // gộp books và addBooks (cú pháp mới)
         books = books.Concat(addBooks).ToArray();
-
       }
-
 
       return books;
     }
@@ -179,24 +177,53 @@ namespace Book.Web.Services
         .ToArrayAsync();
 
       return similarBooks;
-
     }
+
+    //public async Task<PagedResult<BookListDTO>> GetBooksByAuthorAsync(int pageNo, int pageSize, string authorSlug)
+    //{
+    //  using var context = _dbContextFactory.CreateDbContext();
+
+    //  var query = context.Books.Where(b => b.Author.Slug == authorSlug);
+
+    //  var totalCount = await query.CountAsync();
+
+    //  var books = await query
+    //    .Select(b => new BookListDTO(b.Id, b.Name, b.Image, new AuthorDTO(b.Author.Name, b.Author.Slug)))
+    //    .OrderByDescending(b => b.Id)
+    //    .Skip((pageNo - 1) * pageSize)
+    //    .Take(pageSize)
+    //    .ToArrayAsync();
+
+    //  return new PagedResult<BookListDTO>(books, totalCount);
+    //}
 
     public async Task<PagedResult<BookListDTO>> GetBooksByAuthorAsync(int pageNo, int pageSize, string authorSlug)
     {
       using var context = _dbContextFactory.CreateDbContext();
-
-      var query = context.Books.Where(b => b.Author.Slug == authorSlug);
-
-      var totalCount = await query.CountAsync();
-
-      var books = await query
-        .Select(b => new BookListDTO(b.Id, b.Name, b.Image, new AuthorDTO(b.Author.Name, b.Author.Slug)))
-        .OrderByDescending(b => b.Id)
+      
+      // Truy vấn sản phẩm (sách) theo parameter truyền vào authorSluge, sắp xếp, phân trang (làm sắp xếp, phân trang trước)
+      var query = context.Books
+        .Where(b => b.Author.Slug == authorSlug)
+        .OrderByDescending(b => b.Id) // sắp xếp trước khi mapping (ánh xạ)
         .Skip((pageNo - 1) * pageSize)
-        .Take(pageSize)
+        .Take(pageSize);
+
+      // Đếm tổng số sản phẩm (sách) thõa điều kiện
+      var totalCount = await context.Books
+        .Where(b => b.Author.Slug == authorSlug)
+        .CountAsync();
+
+      // Mapping dữ liệu sang DTO sau khi phân trang
+      var books = await query
+        .Select(b => new BookListDTO(
+          b.Id,
+          b.Name,
+          b.Image,
+          new AuthorDTO(b.Author.Name, b.Author.Slug)
+          ))
         .ToArrayAsync();
 
+      // Trả về kết quả phân trang
       return new PagedResult<BookListDTO>(books, totalCount);
     }
   }

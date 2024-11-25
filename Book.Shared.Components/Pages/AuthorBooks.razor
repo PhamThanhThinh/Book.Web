@@ -4,7 +4,15 @@
 @inject NavigationManager NavigationManager
 @inject IBookService BookService
 
+@* <PageTitle>Tác Giả | Nhà Sách Online</PageTitle> *@
+<PageTitle>@_heading | Nhà Sách Online</PageTitle>
+<SectionContent SectionName="PageTitle">
+  @* <h1 class="m-0 text-black fw-bold">Sách Của Tác Giả</h1> *@
+  <h1 class="m-0 text-black fw-bold">@_heading</h1>
+  @* <h3 class="text-black mt-2">Danh Sách Sách</h3> *@
+</SectionContent>
 <h3>AuthorBooks</h3>
+
 
 @code {
   [Parameter]
@@ -18,6 +26,8 @@
   private BookListDTO[] _popularBookAsync = [];
   private int _totalCount = 0;
 
+  private string _heading = "Tác giả";
+
   protected override async Task OnInitializedAsync()
   {
     if (PageNo <= 0 || string.IsNullOrWhiteSpace(AuthorSlug))
@@ -30,10 +40,16 @@
     (_booksByAuthorAsync, _totalCount) = await BookService.GetBooksByAuthorAsync(PageNo ?? 1, PageSize, AuthorSlug);
 
     var danhSachSanPham = await BookService.GetBooksAsync(PageNo ?? 1, PageSize);
-    
+
     // var danhSachSanPhamBanChay = BookService.GetPopularBookAsync(10);
     _popularBookAsync = await BookService.GetPopularBookAsync(10);
 
+    var author = _booksByAuthorAsync.FirstOrDefault()?.Author;
+
+    if (author is not null)
+    {
+      _heading = $"Được sáng tác bởi {author.Value.Name}";
+    }
 
   }
 }
