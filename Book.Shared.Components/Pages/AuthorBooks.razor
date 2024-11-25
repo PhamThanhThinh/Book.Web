@@ -4,12 +4,9 @@
 @inject NavigationManager NavigationManager
 @inject IBookService BookService
 
-@* <PageTitle>Tác Giả | Nhà Sách Online</PageTitle> *@
 <PageTitle>@_heading | Nhà Sách Online</PageTitle>
 <SectionContent SectionName="PageTitle">
-  @* <h1 class="m-0 text-black fw-bold">Sách Của Tác Giả</h1> *@
   <h1 class="m-0 text-black fw-bold">@_heading</h1>
-  @* <h3 class="text-black mt-2">Danh Sách Sách</h3> *@
 </SectionContent>
 <h3>AuthorBooks</h3>
 
@@ -18,12 +15,11 @@
     <div class="col-md-9">
       <div class="row">
         <h3 class="mt-2 mb-3 alert-heading">@_heading</h3>
-
-
-
+        <BooksGrid Books="_booksByAuthorAsync" />
       </div>
     </div>
     <div class="col-md-3">
+      <PopularBooks PopularBooksList="_popularBookAsync" />
     </div>
   </div>
 </div>
@@ -50,12 +46,10 @@
       return;
     }
 
-    // var ketQua = await BookService.GetBooksByAuthorAsync(PageNo ?? 1, PageSize, AuthorSlug);
     (_booksByAuthorAsync, _totalCount) = await BookService.GetBooksByAuthorAsync(PageNo ?? 1, PageSize, AuthorSlug);
 
     var danhSachSanPham = await BookService.GetBooksAsync(PageNo ?? 1, PageSize);
 
-    // var danhSachSanPhamBanChay = BookService.GetPopularBookAsync(10);
     _popularBookAsync = await BookService.GetPopularBookAsync(10);
 
     var author = _booksByAuthorAsync.FirstOrDefault()?.Author;
@@ -64,6 +58,5 @@
     {
       _heading = $"Được sáng tác bởi {author.Value.Name}";
     }
-
   }
 }

@@ -4,8 +4,6 @@
 
 @inject IBookService BookService
 
-@* <PageTitle>Trang chủ nhà sách online</PageTitle> *@
-
 <PageTitle>
   @_book?.Name | Nhà Sách Online
 </PageTitle>
@@ -27,7 +25,7 @@
           <img src="https://m.media-amazon.com/images/I/517a4JTQuTL._SY445_SX342_.jpg"
                alt="@_book.Name" class="img-responsive">
           @* test trường hợp không load được ảnh *@
-               @* <img src=""
+              @*  <img src=""
                alt="@_book.Name" class="img-responsive"> *@
         </div>
 
@@ -51,10 +49,6 @@
             </tbody>
           </table>
         </div>
-
-        @* <a href="@(string.IsNullOrWhiteSpace(_book.Name))">Xem Thêm Thông Tin</a> *@
-        
-        @* <a class="btn btn-primary" href="@(string.IsNullOrWhiteSpace(_book.BuyLink) ? "" : "")">Mua Hàng</a> *@
         <a class="btn btn-primary customclass" href="@_book.BookBuyLink" target="_blank">
           @(string.IsNullOrWhiteSpace(_book.BuyLink) ? "Xem Thêm Thông Tin" : "Mua Hàng")
         </a>
@@ -65,9 +59,6 @@
         <h3 class="fw-bold">@_book.Name</h3>
         <h4 class="mt-3">
           <span>Tác giả: </span>
-          @* <a class="text-secondary fw-bold" href="/authors/@_book.Author.Slug/books"
-            title="Cuốn Sách Được Viết Bởi @_book.Author.Name"
-          >@_book.Author.Name</a> *@
           <a class="fw-bold" href="/authors/@_book.Author.Slug/books"
              title="Cuốn Sách Được Viết Bởi @_book.Author.Name">@_book.Author.Name</a>
         </h4>
@@ -89,22 +80,6 @@
 
         <hr style="height: 5px" />
         <h4>Những Cuốn Sách Tương Tự</h4>
-
-        @* <div class="row">
-          @foreach (var b in _similarBookListDTOs)
-          {
-            <div class="col-6 col-sm-4 mb-4">
-              <a href="/books/@b.Id" title="@b.Name">
-                <div class="d-flex flex-column justify-content-center align-center-item">
-                  <img src="@b.Image" alt="@b.Name" class="" />
-                  <label class="mt-2">@b.Name</label>
-                </div>
-              </a>
-            </div>
-
-          }
-        </div> *@
-
         <div class="row">
           @foreach (var b in _similarBookListDTOs)
           {
@@ -132,8 +107,6 @@
     </div>
   </div>
 }
-
-
 
 @code {
   [Parameter]

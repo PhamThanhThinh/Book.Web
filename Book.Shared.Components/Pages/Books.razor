@@ -4,13 +4,13 @@
 
 @inject IBookService BookService
 
-<PageTitle>Trang chủ nhà sách online</PageTitle>
+<PageTitle>Trang chủ | Nhà sách online</PageTitle>
 
 <SectionContent SectionName="PageTitle">
   <h1 class="m-0 text-black">
     Nhà Sách Online
   </h1>
-  <h2 class="text-white bg-main-dark mt-2">Sách bán chạy (Popular)</h2>
+  <h2 class="text-white bg-main-dark mt-2">Bán Sách Online Nha</h2>
 </SectionContent>
 
 <div class="container-lg">
@@ -19,20 +19,10 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="genre-list">
-
             <div class="genre-item">
-              <a href="/genres">Trang Thể Loại</a>
+              <a href="/genres"><strong>Thể Loại</strong></a>
             </div>
-
-            <div class="genre-item">
-              @* <h3 class="my-2">Sách Bán Chạy</h3> *@
-
-              <h3>Sách Bán Chạy</h3>
-              <a href="/" title="Popular Book">Popular Book</a>
-            </div>
-
             <h3 class="my-2">Danh sách thể loại</h3>
-
             @foreach (var g in _genreDTOs)
             {
               <div class="genre-item">
@@ -45,35 +35,11 @@
         </div>
 
         <h3 class="my-2">Danh Sách Các Cuốn Sách</h3>
-        @* <h3 class="mt-2 mb-3 alert-heading">@_heading</h3> *@
-
-        <div class="row">
-          @foreach (var b in _bookListDTOs)
-          {
-            <div class="col-sm-6 col-lg-3">
-              <a href="/books/@b.Id" title="@b.Name">
-                <figure class="bg-main-light">
-                  <img src="@b.Image" alt="@b.Name" />
-                  <figcaption>
-                    @b.Name
-                  </figcaption>
-                  <figcaption>
-                    <h4>@b.Name</h4>
-                  </figcaption>
-                  <div class="p-2">
-                    <h4>@b.Name</h4>
-                  </div>
-                </figure>
-              </a>
-            </div>
-
-          }
-        </div>
-
+        <BooksGrid Books="_bookListDTOs" />
       </div>
     </div>
     <div class="col-md-3">
-
+      <PopularBooks PopularBooksList="_popularBooks" />
     </div>
   </div>
 </div>

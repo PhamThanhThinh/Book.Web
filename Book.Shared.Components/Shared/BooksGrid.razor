@@ -1,8 +1,7 @@
-﻿// viết html
-<div class="row">
+﻿<div class="row">
   @foreach (var b in Books)
   {
-    <div class="col-sm-6 col-lg-3">
+    @* <div class="col-sm-6 col-lg-3">
       <a href="/books/@b.Id" title="@b.Name">
         <figure class="bg-main-light">
           <img src="@b.Image" alt="@b.Name" />
@@ -10,6 +9,22 @@
         <div class="p-2">
           <h6 class="text-main alert-heading text-center">@b.Name</h6>
         </div>
+      </a>
+    </div> *@
+    <div class="col-sm-6 col-lg-3">
+      <a href="/books/@b.Id" title="@b.Name">
+        <figure class="bg-main-light">
+          <img src="@b.Image" alt="@b.Name" />
+          <figcaption>
+            @b.Name
+          </figcaption>
+          <figcaption>
+            <h4>@b.Name</h4>
+          </figcaption>
+          <div class="p-2">
+            <h4>@b.Name</h4>
+          </div>
+        </figure>
       </a>
     </div>
   }

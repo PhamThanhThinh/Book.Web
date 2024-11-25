@@ -38,6 +38,7 @@ html, body {
 }
 
 .right-box {
+  margin: 20px;
   float: right; /* Aligns the box to the right */
   width: 300px; /* Sets the width of the box */
   padding: 10px; /* Adds padding inside the box */
