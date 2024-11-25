@@ -1,8 +1,5 @@
 ﻿using Book.Web.Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.SqlServer.Server;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Book.Web.Data
 {

@@ -36,25 +36,38 @@ namespace Book.Web.Services
     {
       using var context = _dbContextFactory.CreateDbContext();
 
+      // Khởi tạo truy vấn từ bảng Books
       var query = context.Books.AsQueryable();
 
+      // Lọc dữ liệu theo genreSlug nếu có
       if (!string.IsNullOrWhiteSpace(genreSlug))
       {
-        query = context.Genres
-          .Where(g => g.Slug == genreSlug)
-          .SelectMany(g => g.GenreBooks)
-          .Select(gb => gb.Book);
+        //query = context.Genres
+        //  .Where(g => g.Slug == genreSlug)
+        //  .SelectMany(g => g.GenreBooks)
+        //  .Select(gb => gb.Book);
+        // Sửa lại câu truy vấn
+        query = query.Where(b => b.BookGeres.Any(gb => gb.Genre.Slug == genreSlug));
       }
 
+      // Đếm tổng số dòng dữ liệu (đếm số bản ghi) được thực hiện trong câu lệnh truy vấn query
       var totalCount = await query.CountAsync();
-      var books = await query.OrderByDescending(b => b.Id)
+      
+      // Lấy danh sách sản phẩm (sách) theo phân trang
+      var books = await query
+        .OrderByDescending(b => b.Id)
         .Skip((pageNo - 1) * pageSize)
         .Take(pageSize)
-        .Select(b => new BookListDTO(b.Id, b.Name, b.Image, new AuthorDTO(b.Author.Name, b.Author.Slug)))
+        .Select(b => new BookListDTO(
+          b.Id, 
+          b.Name, 
+          b.Image, 
+          new AuthorDTO(b.Author.Name, b.Author.Slug)
+        ))
         .ToArrayAsync();
 
+      // Trả về kết quả
       return new PagedResult<BookListDTO>(books, totalCount);
-
     }
 
     public async Task<BookListDTO[]> GetPopularBookAsync(int count, string? genreSlug = null)
