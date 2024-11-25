@@ -1,5 +1,21 @@
-﻿<h3>BooksGrid</h3>
-
+﻿// viết html
+@inject IBookService BookService
+<div class="row">
+  @foreach (var b in Books)
+  {
+    <div class="col-sm-6 col-lg-3">
+      <a href="/books/@b.Id" title="@b.Name">
+        <figure class="bg-main-light">
+          <img src="@b.Image" alt="@b.Name" />
+        </figure>
+        <div class="p-2">
+          <h6 class="text-main alert-heading text-center">@b.Name</h6>
+        </div>
+      </a>
+    </div>
+  }
+</div>
 @code {
-
+  [Parameter, EditorRequired]
+  public BookListDTO[] Books { get; set; } = [];
 }

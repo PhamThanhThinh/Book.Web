@@ -3,3 +3,14 @@ SEO
 
 ViewBag.Title
 varibale
+
+component (blazor)
+view (.net framework và .net core)
+
+view và partial
+
+mảng array
+
+p là padding (bootstrap cơ bản)
+
+

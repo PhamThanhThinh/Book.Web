@@ -1,5 +1,8 @@
-﻿<h3>PopularBooks</h3>
+﻿// viết code html
 
+// viết code c# (thay cho javascript)
 @code {
-
+  [Parameter, EditorRequired]
+  public BookListDTO[] PopularBooksList { get; set; } = [];
+  private BookListDTO[] _popularBooks = [];
 }
